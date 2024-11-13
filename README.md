@@ -10,3 +10,10 @@ The *naive* implementation materializes a `SEQ_LEN x SEQ_LEN` tensor, so it may 
 
 Not tested on AMD, so let me know!
 
+## Exercise 1: autotuning the backwards pass
+
+Can you apply autotuning configs to the backwards pass like done for the forward pass?
+
+## Exercise 2: how to make Flash Attention faster
+
+As you can see, during the backwards pass we are going through the entire `SEQ_LEN` even when the attention calculation is `causal`, can you avoid going through all tokens that would not contribute to any change in `dK`, `dQ` and `dV` when the attention calculation is causal?
